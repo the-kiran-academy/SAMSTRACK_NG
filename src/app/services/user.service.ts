@@ -13,8 +13,14 @@ export class UserService {
     const apiUrl = "http://localhost:8091/user/login-user";
 
     return this.http.post(apiUrl, user);
-
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('user'); // or any other logic
+  }
+
+
+
 
   registerUser(user: any): Observable<any> {
     const apiUrl = "http://localhost:8091/user/register-user";
